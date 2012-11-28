@@ -53,15 +53,17 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<aop:config>
+	<!-- <aop:config>
 		<aop:pointcut id="webMethods" expression="execution(* com.printo.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="webMethods" />
-	</aop:config>
+	</aop:config> -->
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<!--  <tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
-	</tx:advice>
+	</tx:advice> -->
 
 </beans>
